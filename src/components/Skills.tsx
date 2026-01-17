@@ -12,7 +12,7 @@ const skills = [
     icon: Globe,
     title: "Web Development",
     description: "Membuat website yang responsif dan dinamis dengan teknologi web modern",
-    technologies: ["HTML5", "CSS3", "JavaScript", "TypeScript"],
+    technologies: ["HTML5", "CSS", "JavaScript", "TypeScript"],
     color: "from-blue-500 to-cyan-500",
   },
   {
@@ -33,21 +33,21 @@ const skills = [
     icon: Database,
     title: "Database Design",
     description: "Mendesain struktur database yang efisien dan aman",
-    technologies: ["MySQL", "PostgreSQL", "MongoDB", "Redis"],
+    technologies: ["MySQL", "PostgreSQL", "MariaDB", "SawitDB"],
     color: "from-orange-500 to-amber-500",
   },
   {
     icon: GitBranch,
     title: "Version Control",
     description: "Mengelola kode sumber dengan sistem version control modern",
-    technologies: ["Git", "GitHub", "GitLab", "CI/CD"],
+    technologies: ["Git", "GitHub", "CI/CD"],
     color: "from-pink-500 to-rose-500",
   },
   {
     icon: Terminal,
     title: "Development Tools",
     description: "Menggunakan alat pengembangan modern dan lingkungan pengembangan terintegrasi",
-    technologies: ["VS Code", "Docker", "Linux", "Postman"],
+    technologies: ["VS Code", "Docker", "Atom"],
     color: "from-slate-500 to-zinc-500",
   },
 ];
