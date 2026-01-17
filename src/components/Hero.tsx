@@ -47,7 +47,7 @@ const Hero = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 opacity-0 animate-fade-in animation-delay-600">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 opacity-0 animate-fade-in animation-delay-600">
             <Button
               asChild
               size="lg"
@@ -67,7 +67,7 @@ const Hero = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-0 inset-x-0 flex justify-center opacity-0 animate-fade-in animation-delay-600">
+        <div className="absolute bottom--0 inset-x-0 flex justify-center opacity-0 animate-fade-in animation-delay-600">
           <a
             href="#about"
             className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"

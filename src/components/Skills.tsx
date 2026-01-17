@@ -18,7 +18,7 @@ const skills = [
   {
     icon: Palette,
     title: "Frontend Development",
-    description: "Membangun Ui/UX pengguna yang menarik dan interaktif",
+    description: "Membangun UI/UX pengguna yang menarik dan interaktif",
     technologies: ["React", "Tailwind CSS", "Next.js", "Vite"],
     color: "from-emerald-500 to-teal-500",
   },

@@ -34,7 +34,7 @@ const galleryImages = [
   {
     id: 6,
     src: "/images/lightning-1.jpg",
-    alt: "Petir malam",
+    alt: "Kilatan petir",
     span: "col-span-2 row-span-1",
   },
 ];
