@@ -18,7 +18,8 @@ const projects: Project[] = [
   {
     id: 1,
     title: "Coffee S1ke Web",
-    description: "WEbsite company profile untuk Coffee S1ke, kedai kopi kopian.",
+    description:
+      "WEbsite company profile untuk Coffee S1ke, kedai kopi kopian.",
     technologies: ["HTML", "CSS", "Tailwind CSS", "Javascript"],
     status: "completed",
     githubUrl: "https://github.com/r4scodee/Game-space",
@@ -27,7 +28,8 @@ const projects: Project[] = [
   {
     id: 2,
     title: "Mini Games",
-    description: "Mini Games untuk hiburan dan mengasah logika. simple tapi seru!",
+    description:
+      "Mini Games untuk hiburan dan mengasah logika. simple tapi seru!",
     technologies: ["HTML", "CSS", "Javascript", "Bootstrap"],
     status: "completed",
     githubUrl: "https://github.com/r4scodee/Game-space",
@@ -45,10 +47,11 @@ const projects: Project[] = [
   {
     id: 4,
     title: "MyKareem Quran Reader",
-    description: "Aplikasi baca Quran digital dengan fitur lengkap untuk pengalaman membaca yang nyaman.",
+    description:
+      "Aplikasi baca Quran digital dengan fitur lengkap untuk pengalaman membaca yang nyaman.",
     technologies: ["Next.js", "MySQL", "Tailwind CSS", "Firebase API"],
     status: "ongoing",
-    githubUrl: "https://github.com/r4scodee/app_mykareem"
+    githubUrl: "https://github.com/r4scodee/app_mykareem",
   },
 ];
 
@@ -67,8 +70,17 @@ const statusConfig = {
 
 const Projects = () => {
   return (
-    <section id="projects" className="section-padding bg-card/30">
-      <div className="container-custom">
+    <section
+      id="projects"
+      className="relative section-padding bg-card/30 overflow-hidden"
+    >
+      {/* FLOATING SHOWCASE GLOWS */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-32 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl animate-float-random" />
+        <div className="absolute top-1/3 right-0 w-80 h-80 bg-teal-500/20 rounded-full blur-3xl animate-float-random-slow" />
+        <div className="absolute bottom-0 left-10 w-64 h-64 bg-primary/20 rounded-2xl blur-2xl animate-float-random rotate-12" />
+      </div>
+      <div className="container-custom relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-sm font-semibold text-primary mb-4 tracking-wider uppercase">
@@ -79,7 +91,8 @@ const Projects = () => {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full" />
           <p className="mt-6 text-muted-foreground max-w-2xl mx-auto">
-            Beberapa project yang pernah gw kerjain, baik secara individu maupun tim.
+            Beberapa project yang pernah gw kerjain, baik secara individu maupun
+            tim.
           </p>
         </div>
 
@@ -95,6 +108,10 @@ const Projects = () => {
                 className="group relative p-6 lg:p-8 rounded-2xl bg-card border border-border card-hover"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
+                <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
+                  <div className="absolute -left-full top-0 h-full w-1/2 bg-gradient-to-r from-transparent via-primary/10 to-transparent group-hover:left-full transition-all duration-700" />
+                </div>
+
                 {/* Status Badge */}
                 <div className="flex items-center justify-between mb-4">
                   <Badge
@@ -162,9 +179,6 @@ const Projects = () => {
                     </Button>
                   )}
                 </div>
-
-                {/* Decorative Corner */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </article>
             );
           })}
@@ -179,7 +193,9 @@ const Projects = () => {
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold transition-colors group"
           >
             Lihat lainnya di GitHub
-            <span className="group-hover:translate-x-1 transition-transform">→</span>
+            <span className="group-hover:translate-x-1 transition-transform">
+              →
+            </span>
           </a>
         </div>
       </div>

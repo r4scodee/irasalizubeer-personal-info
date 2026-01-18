@@ -1,17 +1,18 @@
-import { 
-  Globe, 
-  Palette, 
-  Server, 
-  Database, 
-  GitBranch, 
-  Terminal 
+import {
+  Globe,
+  Palette,
+  Server,
+  Database,
+  GitBranch,
+  Terminal,
 } from "lucide-react";
 
 const skills = [
   {
     icon: Globe,
     title: "Web Development",
-    description: "Membuat website yang responsif dan dinamis dengan teknologi web modern",
+    description:
+      "Membuat website yang responsif dan dinamis dengan teknologi web modern",
     technologies: ["HTML5", "CSS", "JavaScript", "TypeScript"],
     color: "from-blue-500 to-cyan-500",
   },
@@ -46,7 +47,8 @@ const skills = [
   {
     icon: Terminal,
     title: "Development Tools",
-    description: "Menggunakan alat pengembangan modern dan lingkungan pengembangan terintegrasi",
+    description:
+      "Menggunakan alat pengembangan modern dan lingkungan pengembangan terintegrasi",
     technologies: ["VS Code", "Docker", "Atom"],
     color: "from-slate-500 to-zinc-500",
   },
@@ -54,8 +56,15 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="section-padding">
-      <div className="container-custom">
+    <section id="skills" className="relative section-padding overflow-hidden">
+      {/* FLOATING TECH GLOWS */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-24 left-1/4 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-float-random" />
+        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl animate-float-random-slow" />
+        <div className="absolute top-1/3 right-10 w-56 h-56 bg-violet-500/20 rounded-2xl blur-2xl animate-float-random rotate-12" />
+      </div>
+
+      <div className="container-custom relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-sm font-semibold text-primary mb-4 tracking-wider uppercase">
@@ -66,7 +75,8 @@ const Skills = () => {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full" />
           <p className="mt-6 text-muted-foreground max-w-2xl mx-auto">
-            Berikut adalah beberapa teknologi dan alat yang sering gw pake buat pengembangan software.
+            Berikut adalah beberapa teknologi dan alat yang sering gw pake buat
+            pengembangan software.
           </p>
         </div>
 
@@ -82,10 +92,12 @@ const Skills = () => {
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
               />
-              
+
               <div className="relative z-10">
                 {/* Icon */}
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${skill.color} p-3 mb-5 group-hover:scale-110 transition-transform duration-300`}>
+                <div
+                  className={`w-14 h-14 rounded-xl bg-gradient-to-br ${skill.color} p-3 mb-5 group-hover:scale-110 transition-transform duration-300`}
+                >
                   <skill.icon className="w-full h-full text-white" />
                 </div>
 

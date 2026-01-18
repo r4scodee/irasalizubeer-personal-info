@@ -1,4 +1,11 @@
 import { Camera, Moon, Stars } from "lucide-react";
+import { useEffect, useState } from "react";
+
+type Meteor = {
+  id: number;
+  top: number;
+  duration: number;
+};
 
 const galleryImages = [
   {
@@ -39,15 +46,84 @@ const galleryImages = [
   },
 ];
 
+const stars = [
+  { top: "8%", left: "12%", d: "8200s" },
+  { top: "15%", left: "30%", d: "7600s" },
+  { top: "22%", left: "55%", d: "9000s" },
+  { top: "28%", left: "75%", d: "8600s" },
+  { top: "35%", left: "18%", d: "9400s" },
+  { top: "42%", left: "40%", d: "8000s" },
+  { top: "48%", left: "65%", d: "8800s" },
+  { top: "55%", left: "25%", d: "9200s" },
+  { top: "60%", left: "50%", d: "8400s" },
+  { top: "68%", left: "78%", d: "9600s" },
+  { top: "72%", left: "35%", d: "10000s" },
+  { top: "80%", left: "15%", d: "9000s" },
+  { top: "85%", left: "60%", d: "8800s" },
+];
+
+const brightStars = [
+  { top: "20%", left: "70%", d: "7200s" },
+  { top: "38%", left: "30%", d: "8400s" },
+  { top: "52%", left: "82%", d: "9000s" },
+  { top: "65%", left: "45%", d: "9600s" },
+  { top: "78%", left: "20%", d: "8800s" },
+];
+
+const shootingStars = [
+  { top: "10%", left: "-20%", delay: "8s", duration: "2.8s" },
+  { top: "25%", left: "-30%", delay: "22s", duration: "3s" },
+  { top: "40%", left: "-25%", delay: "38s", duration: "2.6s" },
+  { top: "600%", left: "-35%", delay: "58s", duration: "5.6s" },
+];
+
 const Hobby = () => {
   return (
-    <section id="hobby" className="section-padding bg-background relative overflow-hidden">
-      {/* Subtle background decoration */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-primary/40 rounded-full animate-pulse" />
-        <div className="absolute top-40 right-20 w-1.5 h-1.5 bg-primary/30 rounded-full animate-pulse delay-300" />
-        <div className="absolute bottom-32 left-1/4 w-1 h-1 bg-primary/50 rounded-full animate-pulse delay-500" />
-        <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-primary/20 rounded-full animate-pulse delay-700" />
+    <section id="hobby" className="relative section-padding bg-background overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="galaxy absolute -top-48 -left-48 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-indigo-500/25 via-purple-500/15 to-transparent blur-3xl" />
+        <div className="galaxy absolute top-1/3 right-[-260px] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-cyan-400/25 via-blue-500/15 to-transparent blur-3xl" />
+      </div>
+
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {shootingStars.map((s, i) => (
+          <span
+            key={i}
+            className="shooting-star"
+            style={{
+              top: s.top,
+              left: s.left,
+              animationDelay: s.delay,
+              animationDuration: s.duration,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="absolute inset-0 pointer-events-none">
+        {stars.map((s, i) => (
+          <span
+            key={i}
+            className="star"
+            style={{
+              top: s.top,
+              left: s.left,
+              animationDuration: s.d,
+            }}
+          />
+        ))}
+
+        {brightStars.map((s, i) => (
+          <span
+            key={`b-${i}`}
+            className="star-bright"
+            style={{
+              top: s.top,
+              left: s.left,
+              animationDuration: s.d,
+            }}
+          />
+        ))}
       </div>
 
       <div className="container-custom relative z-10">
@@ -57,15 +133,17 @@ const Hobby = () => {
             <Camera className="w-4 h-4 text-primary" />
             <span className="text-sm text-primary font-medium">Hobby</span>
           </div>
-          
+
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Things I{" "}
-            <span className="gradient-text">Enjoy</span>
+            Things I <span className="gradient-text">Enjoy</span>
           </h2>
-          
+
           <div className="max-w-2xl mx-auto space-y-4">
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Selain perkodingan, gw juga suka Fotografi apalagi yang berhubungan sama langit malam. Gw suka banget ngambil foto bintang, bulan, dan fenomena langit lainnya. Rasanya kayak nemuin keindahan baru di setiap jepretan. kasi understand kingg
+              Selain perkodingan, gw juga suka Fotografi apalagi yang
+              berhubungan sama langit malam. Gw suka banget ngambil foto
+              bintang, bulan, dan fenomena langit lainnya. Rasanya kayak nemuin
+              keindahan baru di setiap jepretan. kasi understand kingg
             </p>
           </div>
         </div>
@@ -100,13 +178,15 @@ const Hobby = () => {
                 className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
                 loading="lazy"
               />
-              
+
               {/* Overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
+
               {/* Caption on hover */}
               <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <p className="text-sm text-foreground font-medium">{image.alt}</p>
+                <p className="text-sm text-foreground font-medium">
+                  {image.alt}
+                </p>
               </div>
 
               {/* Subtle border glow on hover */}

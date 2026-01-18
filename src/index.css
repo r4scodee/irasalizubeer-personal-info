@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
 
 @layer base {
   :root {
@@ -62,11 +62,12 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
   }
 
-  code, pre {
-    font-family: 'JetBrains Mono', monospace;
+  code,
+  pre {
+    font-family: "JetBrains Mono", monospace;
   }
 }
 
@@ -80,11 +81,15 @@
   }
 
   .gradient-border::before {
-    content: '';
+    content: "";
     @apply absolute inset-0 rounded-xl p-[1px];
     background: linear-gradient(135deg, hsl(160 84% 39%), hsl(180 84% 39%));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
   }
@@ -122,4 +127,152 @@
   .animation-delay-600 {
     animation-delay: 600ms;
   }
+}
+
+/* Glow Effect */
+
+@keyframes glow-float-1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, -60px) scale(1.6);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+@keyframes glow-float-2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-40px, 40px) scale(2.2);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.animate-glow-1 {
+  animation: glow-float-1 18s ease-in-out infinite;
+}
+
+.animate-glow-2 {
+  animation: glow-float-2 22s ease-in-out infinite;
+}
+
+/* Shape Effect */
+@keyframes float-random {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(20px, -30px) rotate(8deg) scale(1.05);
+  }
+  50% {
+    transform: translate(-25px, 20px) rotate(-6deg) scale(0.95);
+  }
+  75% {
+    transform: translate(15px, 25px) rotate(5deg) scale(1.02);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+}
+
+.animate-float-random {
+  animation: float-random 14s ease-in-out infinite;
+}
+.animate-float-random-slow {
+  animation: float-random 22s ease-in-out infinite;
+}
+.animate-float-random-fast {
+  animation: float-random 10s ease-in-out infinite;
+}
+
+/* Star Effect */
+
+@keyframes star-glow {
+  0%,
+  100% {
+    opacity: 0.35;
+    box-shadow: 0 0 6px rgba(200, 220, 255, 0.5);
+  }
+  50% {
+    opacity: 0.9;
+    box-shadow: 0 0 14px rgba(220, 235, 255, 0.95);
+  }
+}
+
+/* small stars */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 9999px;
+  animation: star-glow linear infinite;
+}
+
+/*  bright stars */
+.star-bright {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 9999px;
+  box-shadow:
+    0 0 6px rgb(255, 255, 255),
+    0 0 30px rgba(180, 210, 255, 0.8);
+  animation: star-glow linear infinite;
+}
+
+@keyframes shooting-star {
+  0% {
+    transform: translate(-200px, -200px) rotate(45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(120vw, 120vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Meteor */
+.shooting-star {
+  position: absolute;
+  width: 130px;
+  height: 2px;
+  background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.9),
+    rgb(22, 233, 241)
+  );
+  filter: drop-shadow(0 0 10px rgba(200, 220, 255, 0.8));
+  animation-name: shooting-star;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/*  Galaxy */
+@keyframes galaxy-glow {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(2);
+  }
+}
+
+.galaxy {
+  animation: galaxy-glow 10s ease-in-out infinite;
 }
