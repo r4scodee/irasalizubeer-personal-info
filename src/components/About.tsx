@@ -11,7 +11,7 @@ const highlights = [
     icon: Code2,
     title: "Developer",
     description:
-      "Suka ngoprek kode dan bikin project software sederhana (ChatGPT bantuin sih)",
+      "Suka ngoprek kode dan bikin project software sederhana (Dibantuin ChatGPT sih)",
   },
   {
     icon: Lightbulb,
