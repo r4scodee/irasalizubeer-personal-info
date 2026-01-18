@@ -36,7 +36,7 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const ACCESS_KEY = "de860f09-7c0e-41af-b719-90b8dc1f5924";
+    const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
 
     const submissionData = {
       ...formData,
