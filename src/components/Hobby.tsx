@@ -71,9 +71,11 @@ const brightStars = [
 ];
 
 const shootingStars = [
-  { top: "1%", left: "-20%", delay: "1s", duration: "2.8s" },
+  { top: "1%", left: "-20%", delay: "40s", duration: "7s" },
+  { top: "5%", left: "-20%", delay: "1s", duration: "2.8s" },
   { top: "10%", left: "-20%", delay: "16s", duration: "4s" },
   { top: "25%", left: "-20%", delay: "20s", duration: "3s" },
+  { top: "25%", left: "-20%", delay: "50s", duration: "8s" },
   { top: "40%", left: "-25%", delay: "34s", duration: "2.6s" },
   { top: "60%", left: "-25%", delay: "8s", duration: "5.6s" },
   { top: "75%", left: "-20%", delay: "12s", duration: "4s" },
