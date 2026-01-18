@@ -71,10 +71,13 @@ const brightStars = [
 ];
 
 const shootingStars = [
-  { top: "10%", left: "-20%", delay: "8s", duration: "2.8s" },
-  { top: "25%", left: "-30%", delay: "22s", duration: "3s" },
-  { top: "40%", left: "-25%", delay: "38s", duration: "2.6s" },
-  { top: "600%", left: "-35%", delay: "58s", duration: "5.6s" },
+  { top: "1%", left: "-20%", delay: "1s", duration: "2.8s" },
+  { top: "10%", left: "-20%", delay: "16s", duration: "4s" },
+  { top: "25%", left: "-20%", delay: "20s", duration: "3s" },
+  { top: "40%", left: "-25%", delay: "34s", duration: "2.6s" },
+  { top: "60%", left: "-25%", delay: "8s", duration: "5.6s" },
+  { top: "75%", left: "-20%", delay: "12s", duration: "4s" },
+  { top: "85%", left: "-20%", delay: "28s", duration: "5.2s" },
 ];
 
 const Hobby = () => {
