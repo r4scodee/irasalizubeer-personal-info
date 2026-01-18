@@ -19,14 +19,6 @@ Website personal branding siswa IT yang tertarik pada pengembangan web dan tekno
 - React / Next.js
 - Tailwind CSS
 
-## Cara Menjalankan Project
-1. Clone repository ini
-2. Install dependency
--npm install
-3. Jalankan server development
--npm run dev
-4. Buka browser dan akses `http://localhost:8080`
-
 ## Kontak
 - Instagram: https://instagram.com/1rb4dh
 - WhatsApp: https://wa.me/6283150773059
