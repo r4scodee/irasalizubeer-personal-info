@@ -46,45 +46,83 @@ const galleryImages = [
   },
 ];
 
+const brightStars = [
+  { top: "12%", left: "18%", d: "7800s" },
+  { top: "18%", left: "70%", d: "7200s" },
+  { top: "22%", left: "42%", d: "8600s" },
+  { top: "28%", left: "85%", d: "9100s" },
+
+  { top: "35%", left: "12%", d: "8300s" },
+  { top: "38%", left: "30%", d: "8400s" },
+  { top: "42%", left: "68%", d: "8900s" },
+  { top: "48%", left: "90%", d: "9400s" },
+
+  { top: "52%", left: "82%", d: "9000s" },
+  { top: "58%", left: "25%", d: "8700s" },
+  { top: "62%", left: "55%", d: "9600s" },
+
+  { top: "65%", left: "45%", d: "9600s" },
+  { top: "70%", left: "75%", d: "9900s" },
+  { top: "74%", left: "10%", d: "8800s" },
+
+  { top: "78%", left: "20%", d: "8800s" },
+  { top: "82%", left: "60%", d: "9200s" },
+  { top: "88%", left: "35%", d: "10000s" },
+];
+
 const stars = [
-  { top: "8%", left: "12%", d: "8200s" },
+  // top area
+  { top: "6%", left: "10%", d: "7800s" },
+  { top: "8%", left: "42%", d: "8200s" },
+  { top: "12%", left: "70%", d: "8600s" },
+
+  // upper-mid
   { top: "15%", left: "30%", d: "7600s" },
   { top: "22%", left: "55%", d: "9000s" },
   { top: "28%", left: "75%", d: "8600s" },
+
+  // mid
   { top: "35%", left: "18%", d: "9400s" },
   { top: "42%", left: "40%", d: "8000s" },
   { top: "48%", left: "65%", d: "8800s" },
+
+  // lower-mid
   { top: "55%", left: "25%", d: "9200s" },
   { top: "60%", left: "50%", d: "8400s" },
   { top: "68%", left: "78%", d: "9600s" },
+
+  // bottom
   { top: "72%", left: "35%", d: "10000s" },
   { top: "80%", left: "15%", d: "9000s" },
   { top: "85%", left: "60%", d: "8800s" },
-];
-
-const brightStars = [
-  { top: "20%", left: "70%", d: "7200s" },
-  { top: "38%", left: "30%", d: "8400s" },
-  { top: "52%", left: "82%", d: "9000s" },
-  { top: "65%", left: "45%", d: "9600s" },
-  { top: "78%", left: "20%", d: "8800s" },
+  { top: "90%", left: "45%", d: "9400s" },
 ];
 
 const shootingStars = [
-  { top: "1%", left: "-20%", delay: "40s", duration: "7s" },
+  { top: "-95%", left: "-20%", delay: "14s", duration: "4s" },
+  { top: "-98%", left: "20%", delay: "24s", duration: "3s" },
+  { top: "-45%", left: "-25%", delay: "15s", duration: "3s" },
+  { top: "-75%", left: "-25%", delay: "5s", duration: "3.6s" },
+  { top: "-10%", left: "-25%", delay: "10s", duration: "3s" },
+  { top: "-30%", left: "-25%", delay: "10s", duration: "2s" },
+  { top: "1%", left: "-40%", delay: "40s", duration: "7s" },
   { top: "5%", left: "-20%", delay: "1s", duration: "2.8s" },
-  { top: "10%", left: "-20%", delay: "16s", duration: "4s" },
+  { top: "10%", left: "-80%", delay: "16s", duration: "4s" },
+  { top: "15%", left: "-30%", delay: "30s", duration: "3s" },
   { top: "25%", left: "-20%", delay: "20s", duration: "3s" },
-  { top: "25%", left: "-20%", delay: "50s", duration: "8s" },
+  { top: "25%", left: "-90%", delay: "50s", duration: "8s" },
   { top: "40%", left: "-25%", delay: "34s", duration: "2.6s" },
   { top: "60%", left: "-25%", delay: "8s", duration: "5.6s" },
-  { top: "75%", left: "-20%", delay: "12s", duration: "4s" },
+  { top: "50%", left: "-80%", delay: "22s", duration: "3.4s" },
   { top: "85%", left: "-20%", delay: "28s", duration: "5.2s" },
 ];
 
 const Hobby = () => {
   return (
-    <section id="hobby" className="relative section-padding bg-background overflow-hidden">
+    <section
+      id="hobby"
+      className="relative section-padding bg-background overflow-hidden"
+    >
       <div className="absolute inset-0 pointer-events-none">
         <div className="galaxy absolute -top-48 -left-48 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-indigo-500/25 via-purple-500/15 to-transparent blur-3xl" />
         <div className="galaxy absolute top-1/3 right-[-260px] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-cyan-400/25 via-blue-500/15 to-transparent blur-3xl" />
@@ -107,9 +145,15 @@ const Hobby = () => {
 
       <div className="absolute inset-0 pointer-events-none">
         {stars.map((s, i) => (
-          <span
-            key={i}
-            className="star"
+          <div
+            key={`s-${i}`}
+            className={`star ${
+              i % 7 === 0
+                ? "star-super"
+                : i % 3 === 0
+                  ? "star-bright"
+                  : "star-normal"
+            }`}
             style={{
               top: s.top,
               left: s.left,
@@ -119,9 +163,9 @@ const Hobby = () => {
         ))}
 
         {brightStars.map((s, i) => (
-          <span
+          <div
             key={`b-${i}`}
-            className="star-bright"
+            className="star star-bright"
             style={{
               top: s.top,
               left: s.left,
@@ -136,7 +180,9 @@ const Hobby = () => {
         <div className="text-center mb-16 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
             <Camera className="w-4 h-4 text-primary" />
-            <span className="text-sm text-primary font-medium uppercase">Hobi</span>
+            <span className="text-sm text-primary font-medium uppercase">
+              Hobi
+            </span>
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
