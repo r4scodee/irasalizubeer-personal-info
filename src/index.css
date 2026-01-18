@@ -26,6 +26,7 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 160 84% 39%;
     --radius: 0.75rem;
+    --meteor-angle: 30deg;
   }
 
   .dark {
@@ -235,14 +236,14 @@ html {
 
 @keyframes shooting-star {
   0% {
-    transform: translate(-200px, -200px) rotate(30deg);
+    transform: translate(-200px, -200px) rotate(var(--meteor-angle));
     opacity: 0;
   }
   10% {
     opacity: 1;
   }
   100% {
-    transform: translate(120vw, 120vh) rotate(30deg);
+    transform: translate(120vw, 120vh) rotate(var(--meteor-angle));
     opacity: 0;
   }
 }
@@ -259,14 +260,19 @@ html {
     rgb(22, 233, 241)
   );
   filter: drop-shadow(0 0 10px rgba(200, 220, 255, 0.8));
-  animation-name: shooting-star;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
+  animation: shooting-star ease-in-out infinite;
+  transform-origin: left center;
+  will-change: transform;
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
   .shooting-star {
     animation-delay: 0s !important;
+  }
+
+  :root {
+    --meteor-angle: 45deg;
   }
 }
 
