@@ -19,7 +19,7 @@ const projects: Project[] = [
     id: 1,
     title: "Coffee S1ke Web",
     description:
-      "WEbsite company profile untuk Coffee S1ke, kedai kopi kopian.",
+      "Website company profile untuk Coffee S1ke, kedai kopi.",
     technologies: ["HTML", "CSS", "Tailwind CSS", "Javascript"],
     status: "completed",
     githubUrl: "https://github.com/r4scodee/Game-space",
@@ -49,7 +49,7 @@ const projects: Project[] = [
     title: "MyKareem Quran Reader",
     description:
       "Aplikasi baca Quran digital dengan fitur lengkap untuk pengalaman membaca yang nyaman.",
-    technologies: ["Next.js", "MySQL", "Tailwind CSS", "Firebase API"],
+    technologies: ["Flutter", "Dart", "Firebase API"],
     status: "ongoing",
     githubUrl: "https://github.com/r4scodee/app_mykareem",
   },

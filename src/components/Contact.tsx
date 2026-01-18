@@ -1,21 +1,32 @@
 import { useState } from "react";
-import { Send, Github, Linkedin, Mail, MapPin, Instagram, MessageCircle } from "lucide-react";
+import {
+  Send,
+  Mail,
+  MapPin,
+  CheckCircle2,
+  Github,
+  Instagram,
+  MessageCircle,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSent, setIsSent] = useState(false);
+
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    user_name: "",
+    user_email: "",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -25,39 +36,55 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const ACCESS_KEY = "de860f09-7c0e-41af-b719-90b8dc1f5924";
 
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
+    const submissionData = {
+      ...formData,
+      access_key: ACCESS_KEY,
+      subject: `Pesan Baru dari Portfolio: ${formData.user_name}`,
+      from_name: "Portfolio Iras Alizubeer",
+    };
 
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(submissionData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSent(true); 
+        toast({
+          title: "Meluncur!",
+          description:
+            "Pesan lo udah masuk ke irbadhb@gmail.com. Tunggu balesan gw ya!",
+          duration: 1000,
+        });
+
+        setFormData({ user_name: "", user_email: "", message: "" });
+
+        setTimeout(() => setIsSent(false), 3000);
+      } else {
+        throw new Error("Gagal mengirim");
+      }
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Waduh!",
+        description: "Lagi ada gangguan di angkasa, coba lagi nanti bro.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "irbadhb@gmail.com",
-      href: "mailto:irbadhb@gmail.com",
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Cirebon, Jawa Barat, Indonesia",
-      href: null,
-    },
-  ];
-
   const socialLinks = [
-    {
-      icon: Github,
-      label: "GitHub",
-      href: "https://github.com/r4scodee",
-    },
+    { icon: Github, label: "GitHub", href: "https://github.com/r4scodee" },
     {
       icon: Instagram,
       label: "Instagram",
@@ -68,13 +95,11 @@ const Contact = () => {
       label: "WhatsApp",
       href: "https://wa.me/6283150773059",
     },
-
   ];
 
   return (
     <section id="contact" className="section-padding">
       <div className="container-custom">
-        {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-sm font-semibold text-primary mb-4 tracking-wider uppercase">
             Kontak
@@ -83,40 +108,36 @@ const Contact = () => {
             Let's Get In Touch
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full" />
-          <p className="mt-6 text-muted-foreground max-w-2xl mx-auto">
-            Gw selalu terbuka buat peluang kolaborasi dan proyek menarik. Ga usah ragu buat reach out lewat form di bawah ini ya!
-          </p>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
-          {/* Contact Info */}
+        <div className="grid lg:grid-cols-5 gap-12">
+          {/* Info Section */}
           <div className="lg:col-span-2 space-y-8">
             <div className="space-y-6">
-              {contactInfo.map((item) => (
-                <div key={item.label} className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <item.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">
-                      {item.label}
-                    </p>
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        className="text-foreground hover:text-primary transition-colors font-medium"
-                      >
-                        {item.value}
-                      </a>
-                    ) : (
-                      <p className="text-foreground font-medium">{item.value}</p>
-                    )}
-                  </div>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 text-primary" />
                 </div>
-              ))}
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Email</p>
+                  <p className="text-foreground font-medium">
+                    irbadhb@gmail.com
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Location</p>
+                  <p className="text-foreground font-medium">
+                    Cirebon, Jawa Barat, Indonesia
+                  </p>
+                </div>
+              </div>
             </div>
 
-            {/* Social Links */}
             <div>
               <p className="text-sm text-muted-foreground mb-4">
                 Follow gw di sosial media
@@ -129,7 +150,6 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-3 rounded-xl bg-secondary hover:bg-primary/10 text-foreground hover:text-primary transition-all duration-300"
-                    aria-label={social.label}
                   >
                     <social.icon size={20} />
                   </a>
@@ -147,16 +167,15 @@ const Contact = () => {
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label
-                    htmlFor="name"
+                    htmlFor="user_name"
                     className="text-sm font-medium text-foreground"
                   >
                     Nama
                   </label>
                   <Input
-                    id="name"
-                    name="name"
+                    name="user_name"
                     placeholder="Nama kamu"
-                    value={formData.name}
+                    value={formData.user_name}
                     onChange={handleChange}
                     required
                     className="bg-background border-border focus:border-primary"
@@ -164,17 +183,16 @@ const Contact = () => {
                 </div>
                 <div className="space-y-2">
                   <label
-                    htmlFor="email"
+                    htmlFor="user_email"
                     className="text-sm font-medium text-foreground"
                   >
                     Email
                   </label>
                   <Input
-                    id="email"
-                    name="email"
+                    name="user_email" 
                     type="email"
                     placeholder="emailkamu@email.com"
-                    value={formData.email}
+                    value={formData.user_email}
                     onChange={handleChange}
                     required
                     className="bg-background border-border focus:border-primary"
@@ -189,7 +207,6 @@ const Contact = () => {
                   Pesan
                 </label>
                 <Textarea
-                  id="message"
                   name="message"
                   placeholder="Tanya apa aja..."
                   value={formData.message}
@@ -199,23 +216,65 @@ const Contact = () => {
                   className="bg-background border-border focus:border-primary resize-none"
                 />
               </div>
+
               <Button
                 type="submit"
                 size="lg"
-                disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold gap-2"
+                disabled={isSubmitting || isSent}
+                className={`w-full font-semibold h-12 rounded-xl group overflow-hidden relative shadow-lg transition-all duration-300 ${
+                  isSent
+                    ? "bg-emerald-500 hover:bg-emerald-600"
+                    : "bg-primary hover:bg-primary/90"
+                }`}
               >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Mengirim...
-                  </>
-                ) : (
-                  <>
-                    <Send size={18} />
-                    Kirim Pesan
-                  </>
-                )}
+                <AnimatePresence mode="wait">
+                  {isSent ? (
+                    <motion.div
+                      key="sent"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="flex items-center justify-center gap-2 text-white"
+                    >
+                      <CheckCircle2 size={18} />
+                      <span>Terkirim!</span>
+                    </motion.div>
+                  ) : isSubmitting ? (
+                    <motion.div
+                      key="submitting"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <motion.div
+                        animate={{ x: [0, 50], y: [0, -50], opacity: [1, 0] }}
+                        transition={{
+                          duration: 0.6,
+                          repeat: Infinity,
+                          ease: "easeIn",
+                        }}
+                      >
+                        <Send size={18} />
+                      </motion.div>
+                      <span>Meluncur...</span>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="default"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <Send
+                        size={18}
+                        className="transition-transform group-hover:rotate-[-15deg] group-hover:translate-x-1 group-hover:translate-y-[-1px]"
+                      />
+                      <span>Kirim Pesan</span>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </Button>
             </form>
           </div>

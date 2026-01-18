@@ -1,11 +1,5 @@
 import { Camera, Moon, Stars } from "lucide-react";
-import { useEffect, useState } from "react";
-
-type Meteor = {
-  id: number;
-  top: number;
-  duration: number;
-};
+import { useMemo } from "react";
 
 const galleryImages = [
   {
@@ -46,86 +40,56 @@ const galleryImages = [
   },
 ];
 
-const brightStars = [
-  { top: "12%", left: "18%", d: "7800s" },
-  { top: "18%", left: "70%", d: "7200s" },
-  { top: "22%", left: "42%", d: "8600s" },
-  { top: "28%", left: "85%", d: "9100s" },
-
-  { top: "35%", left: "12%", d: "8300s" },
-  { top: "38%", left: "30%", d: "8400s" },
-  { top: "42%", left: "68%", d: "8900s" },
-  { top: "48%", left: "90%", d: "9400s" },
-
-  { top: "52%", left: "82%", d: "9000s" },
-  { top: "58%", left: "25%", d: "8700s" },
-  { top: "62%", left: "55%", d: "9600s" },
-
-  { top: "65%", left: "45%", d: "9600s" },
-  { top: "70%", left: "75%", d: "9900s" },
-  { top: "74%", left: "10%", d: "8800s" },
-
-  { top: "78%", left: "20%", d: "8800s" },
-  { top: "82%", left: "60%", d: "9200s" },
-  { top: "88%", left: "35%", d: "10000s" },
-];
-
-const stars = [
-  // top area
-  { top: "6%", left: "10%", d: "7800s" },
-  { top: "8%", left: "42%", d: "8200s" },
-  { top: "12%", left: "70%", d: "8600s" },
-
-  // upper-mid
-  { top: "15%", left: "30%", d: "7600s" },
-  { top: "22%", left: "55%", d: "9000s" },
-  { top: "28%", left: "75%", d: "8600s" },
-
-  // mid
-  { top: "35%", left: "18%", d: "9400s" },
-  { top: "42%", left: "40%", d: "8000s" },
-  { top: "48%", left: "65%", d: "8800s" },
-
-  // lower-mid
-  { top: "55%", left: "25%", d: "9200s" },
-  { top: "60%", left: "50%", d: "8400s" },
-  { top: "68%", left: "78%", d: "9600s" },
-
-  // bottom
-  { top: "72%", left: "35%", d: "10000s" },
-  { top: "80%", left: "15%", d: "9000s" },
-  { top: "85%", left: "60%", d: "8800s" },
-  { top: "90%", left: "45%", d: "9400s" },
-];
-
-const shootingStars = [
-  { top: "-95%", left: "-20%", delay: "14s", duration: "4s" },
-  { top: "-98%", left: "20%", delay: "24s", duration: "3s" },
-  { top: "-45%", left: "-25%", delay: "15s", duration: "3s" },
-  { top: "-75%", left: "-25%", delay: "5s", duration: "3.6s" },
-  { top: "-10%", left: "-25%", delay: "10s", duration: "3s" },
-  { top: "-30%", left: "-25%", delay: "10s", duration: "2s" },
-  { top: "1%", left: "-40%", delay: "40s", duration: "7s" },
-  { top: "5%", left: "-20%", delay: "1s", duration: "2.8s" },
-  { top: "10%", left: "-80%", delay: "16s", duration: "4s" },
-  { top: "15%", left: "-30%", delay: "30s", duration: "3s" },
-  { top: "25%", left: "-20%", delay: "20s", duration: "3s" },
-  { top: "25%", left: "-90%", delay: "50s", duration: "8s" },
-  { top: "40%", left: "-25%", delay: "34s", duration: "2.6s" },
-  { top: "60%", left: "-25%", delay: "8s", duration: "5.6s" },
-  { top: "50%", left: "-80%", delay: "22s", duration: "3.4s" },
-  { top: "85%", left: "-20%", delay: "28s", duration: "5.2s" },
-];
-
 const Hobby = () => {
+  // Generate Bintang Statis
+  const dynamicStars = useMemo(() => {
+    return Array.from({ length: 50 }).map((_, i) => ({
+      id: i,
+      top: `${Math.random() * 100}%`,
+      left: `${Math.random() * 100}%`,
+      duration: `${Math.random() * 5 + 3}s`,
+      type:
+        i % 10 === 0
+          ? "star-super"
+          : i % 3 === 0
+            ? "star-bright"
+            : "star-normal",
+    }));
+  }, []);
+
+  const shootingStars = [
+    { top: "-95%", left: "-20%", delay: "14s", duration: "4s" },
+    { top: "-98%", left: "20%", delay: "24s", duration: "3s" },
+    { top: "-45%", left: "-25%", delay: "15s", duration: "3s" },
+    { top: "-75%", left: "-25%", delay: "5s", duration: "3.6s" },
+    { top: "-10%", left: "-25%", delay: "10s", duration: "3s" },
+    { top: "-30%", left: "-25%", delay: "10s", duration: "2s" },
+    { top: "1%", left: "-40%", delay: "40s", duration: "5s" },
+    { top: "5%", left: "-20%", delay: "1s", duration: "2.8s" },
+    { top: "10%", left: "-80%", delay: "16s", duration: "4s" },
+    { top: "15%", left: "-30%", delay: "30s", duration: "3s" },
+    { top: "25%", left: "-20%", delay: "20s", duration: "3s" },
+    { top: "25%", left: "-90%", delay: "50s", duration: "4s" },
+    { top: "40%", left: "-25%", delay: "34s", duration: "2.6s" },
+    { top: "60%", left: "-25%", delay: "8s", duration: "5.6s" },
+    { top: "50%", left: "-80%", delay: "22s", duration: "3.4s" },
+    { top: "85%", left: "-20%", delay: "28s", duration: "5.2s" },
+  ];
+
   return (
     <section
       id="hobby"
       className="relative section-padding bg-background overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none">
-        <div className="galaxy absolute -top-48 -left-48 w-[700px] h-[700px] rounded-full bg-gradient-to-br from-indigo-500/25 via-purple-500/15 to-transparent blur-3xl" />
-        <div className="galaxy absolute top-1/3 right-[-260px] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-cyan-400/25 via-blue-500/15 to-transparent blur-3xl" />
+        <div
+          className="galaxy absolute -top-[10%] -left-[10%] w-[80%] h-[80%] rounded-full bg-gradient-to-br from-indigo-600/60 via-purple-600/20 to-transparent blur-[120px]"
+          style={{ animationDuration: "18s" }}
+        />
+        <div
+          className="galaxy absolute top-1/4 right-[-10%] w-[70%] h-[70%] rounded-full bg-gradient-to-br from-cyan-500/40 via-blue-600/10 to-transparent blur-[100px]"
+          style={{ animationDuration: "12s", animationDelay: "-5s" }}
+        />
       </div>
 
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -144,43 +108,23 @@ const Hobby = () => {
       </div>
 
       <div className="absolute inset-0 pointer-events-none">
-        {stars.map((s, i) => (
+        {dynamicStars.map((s) => (
           <div
-            key={`s-${i}`}
-            className={`star ${
-              i % 7 === 0
-                ? "star-super"
-                : i % 3 === 0
-                  ? "star-bright"
-                  : "star-normal"
-            }`}
+            key={s.id}
+            className={`star ${s.type}`}
             style={{
               top: s.top,
               left: s.left,
-              animationDuration: s.d,
-            }}
-          />
-        ))}
-
-        {brightStars.map((s, i) => (
-          <div
-            key={`b-${i}`}
-            className="star star-bright"
-            style={{
-              top: s.top,
-              left: s.left,
-              animationDuration: s.d,
+              animationDuration: s.duration,
             }}
           />
         ))}
       </div>
-
       <div className="container-custom relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in">
+        <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
             <Camera className="w-4 h-4 text-primary" />
-            <span className="text-sm text-primary font-medium uppercase">
+            <span className="text-sm text-primary font-medium uppercase tracking-wider">
               Hobi
             </span>
           </div>
@@ -189,59 +133,48 @@ const Hobby = () => {
             Things I <span className="gradient-text">Enjoy</span>
           </h2>
 
-          <div className="max-w-2xl mx-auto space-y-4">
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Selain perkodingan, gw juga suka Fotografi apalagi yang
-              berhubungan sama langit malam. Gw suka banget ngambil foto
-              bintang, bulan, dan fenomena langit lainnya. Rasanya kayak nemuin
-              keindahan baru di setiap jepretan. kasi understand kingg
-            </p>
-          </div>
+          <p className="max-w-2xl mx-auto text-muted-foreground text-lg leading-relaxed">
+            Selain perkodingan, gw juga suka Fotografi apalagi yang berhubungan
+            sama langit malam. Rasanya kayak nemuin keindahan baru di setiap
+            jepretan.
+          </p>
         </div>
 
-        {/* Interest Tags */}
+        {/* Tags */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-colors duration-300">
-            <Camera className="w-4 h-4 text-primary" />
-            <span className="text-sm text-foreground">Photography</span>
-          </div>
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-colors duration-300">
-            <Moon className="w-4 h-4 text-primary" />
-            <span className="text-sm text-foreground">Night Sky</span>
-          </div>
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-colors duration-300">
-            <Stars className="w-4 h-4 text-primary" />
-            <span className="text-sm text-foreground">Astrophotography</span>
-          </div>
+          {[
+            { Icon: Camera, label: "Photography" },
+            { Icon: Moon, label: "Night Sky" },
+            { Icon: Stars, label: "Astrophotography" },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              className="flex items-center gap-2 px-5 py-2 rounded-full bg-card border border-border hover:border-primary/50 transition-all duration-300"
+            >
+              <item.Icon className="w-4 h-4 text-primary" />
+              <span className="text-sm text-foreground font-medium">
+                {item.label}
+              </span>
+            </div>
+          ))}
         </div>
 
-        {/* Masonry Gallery */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 auto-rows-[150px] md:auto-rows-[180px]">
+        {/* Gallery */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[160px] md:auto-rows-[200px]">
           {galleryImages.map((image, index) => (
             <div
               key={image.id}
-              className={`${image.span} relative group overflow-hidden rounded-2xl cursor-pointer`}
-              style={{ animationDelay: `${index * 100}ms` }}
+              className={`${image.span} relative group overflow-hidden rounded-2xl bg-muted`}
             >
               <img
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 loading="lazy"
               />
-
-              {/* Overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-              {/* Caption on hover */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <p className="text-sm text-foreground font-medium">
-                  {image.alt}
-                </p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <p className="text-sm text-white font-medium">{image.alt}</p>
               </div>
-
-              {/* Subtle border glow on hover */}
-              <div className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/30 transition-colors duration-300" />
             </div>
           ))}
         </div>
