@@ -18,8 +18,7 @@ const projects: Project[] = [
   {
     id: 1,
     title: "Coffee S1ke Web",
-    description:
-      "Website company profile untuk Coffee S1ke, kedai kopi.",
+    description: "Website company profile untuk Coffee S1ke, kedai kopi.",
     technologies: ["HTML", "CSS", "Tailwind CSS", "Javascript"],
     status: "completed",
     githubUrl: "https://github.com/r4scodee/Game-space",
@@ -80,7 +79,7 @@ const Projects = () => {
         <div className="absolute top-1/3 right-0 w-80 h-80 bg-teal-500/20 rounded-full blur-3xl animate-float-random-slow" />
         <div className="absolute bottom-0 left-10 w-64 h-64 bg-primary/20 rounded-2xl blur-2xl animate-float-random rotate-12" />
       </div>
-      <div className="container-custom relative z-10">
+      <div className="container-custom relative z-10 overflow-hidden">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-sm font-semibold text-primary mb-4 tracking-wider uppercase">
@@ -96,7 +95,6 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Projects Grid */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {projects.map((project, index) => {
             const status = statusConfig[project.status];
@@ -105,14 +103,13 @@ const Projects = () => {
             return (
               <article
                 key={project.id}
-                className="group relative p-6 lg:p-8 rounded-2xl bg-card border border-border card-hover"
+                className="group relative p-6 lg:p-8 rounded-2xl bg-card border border-border card-hover overflow-hidden"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
                   <div className="absolute -left-full top-0 h-full w-1/2 bg-gradient-to-r from-transparent via-primary/10 to-transparent group-hover:left-full transition-all duration-700" />
                 </div>
 
-                {/* Status Badge */}
                 <div className="flex items-center justify-between mb-4">
                   <Badge
                     variant="outline"
@@ -150,31 +147,42 @@ const Projects = () => {
                       variant="outline"
                       size="sm"
                       asChild
-                      className="gap-2"
+                      className="group relative overflow-hidden gap-2 border-border text-foreground hover:text-foreground hover:bg-secondary transition-all duration-300"
                     >
                       <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <Github size={16} />
-                        Code
+                        {/* Efek Kilat Soft buat Outline */}
+                        <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-15deg)_translateX(-115%)] group-hover:[transform:skew(-15deg)_translateX(115%)] transition-transform duration-700">
+                          <div className="relative h-full w-6 bg-primary/10 blur-sm" />
+                        </div>
+
+                        <Github size={16} className="relative z-10" />
+                        <span className="relative z-10">Code</span>
                       </a>
                     </Button>
                   )}
+
                   {project.liveUrl && (
                     <Button
                       size="sm"
                       asChild
-                      className="gap-2 bg-primary hover:bg-primary/90"
+                      className="group relative overflow-hidden gap-2 bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.3)]"
                     >
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <ExternalLink size={16} />
-                        Live Demo
+                        {/* Efek Kilat Terang buat Solid Button */}
+                        <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-15deg)_translateX(-115%)] group-hover:[transform:skew(-15deg)_translateX(115%)] transition-transform duration-700">
+                          <div className="relative h-full w-6 bg-white/30 blur-sm" />
+                        </div>
+
+                        <ExternalLink size={16} className="relative z-10" />
+                        <span className="relative z-10">Live Demo</span>
                       </a>
                     </Button>
                   )}

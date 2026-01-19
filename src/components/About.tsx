@@ -29,15 +29,18 @@ const highlights = [
 
 const About = () => {
   return (
-    <section id="about" className="relative section-padding bg-card/30 overflow-hidden">
+    <section
+      id="about"
+      className="relative section-padding bg-card/30"
+    >
       {/* ABSURD SHAPES */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl animate-float-random" />
-        <div className="absolute bottom-20 right-16 w-64 h-64 bg-teal-500/20 rounded-full blur-3xl animate-float-random-slow" />
+        <div className="absolute top-10 left-20 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl animate-float-random" />
+        <div className="absolute bottom-20 right-1 w-64 h-64 bg-teal-500/20 rounded-full blur-3xl animate-float-random-slow" />
         <div className="absolute top-1/2 left-1/3 w-48 h-48 bg-cyan-500/20 rounded-2xl blur-2xl animate-float-random-fast rotate-12" />
       </div>
-      
-      <div className="container-custom relative z-10">
+
+      <div className="container-custom relative z-10 overflow-hidden pb-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-sm font-semibold text-primary mb-4 tracking-wider uppercase">
@@ -53,7 +56,7 @@ const About = () => {
           {/* Text Content */}
           <div className="space-y-6">
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Kenalin! Gw{" "}
+              Kenalin! Gw
               <span className="text-foreground font-semibold">
                 Iras Alizubeer
               </span>
@@ -75,15 +78,22 @@ const About = () => {
               berkembang, mengikuti perkembangan terbaru di industri IT.
             </p>
             <div className="pt-4">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold transition-colors group"
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.history.pushState(null, "", "/contact");
+                  const element = document.getElementById("contact");
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold transition-colors group cursor-pointer"
               >
                 Ayo Kenalan Lebih Lanjut
                 <span className="group-hover:translate-x-1 transition-transform">
                   →
                 </span>
-              </a>
+              </button>
             </div>
           </div>
 
@@ -92,7 +102,7 @@ const About = () => {
             {highlights.map((item, index) => (
               <div
                 key={item.title}
-                className="p-6 rounded-xl bg-card border border-border card-hover group"
+                className="p-6 rounded-xl bg-card border border-border card-hover group overflow-hidden"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">

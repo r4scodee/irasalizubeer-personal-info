@@ -13,7 +13,7 @@ const skills = [
     title: "Web Development",
     description:
       "Membuat website yang responsif dan dinamis dengan teknologi web modern",
-    technologies: ["HTML5", "CSS", "JavaScript", "TypeScript"],
+    technologies: ["HTML5", "CSS", "JavaScript", "Java"],
     color: "from-blue-500 to-cyan-500",
   },
   {
@@ -26,8 +26,8 @@ const skills = [
   {
     icon: Server,
     title: "Backend Development",
-    description: "Membangun server dan API yang handal dan skalabel",
-    technologies: ["Laravel", "Node.js", "Express", "REST API"],
+    description: "Membangun server dan RestAPI.",
+    technologies: ["Laravel", "Node.js"],
     color: "from-violet-500 to-purple-500",
   },
   {
@@ -49,7 +49,7 @@ const skills = [
     title: "Development Tools",
     description:
       "Menggunakan alat pengembangan modern dan lingkungan pengembangan terintegrasi",
-    technologies: ["VS Code", "Docker", "Atom"],
+    technologies: ["VS Code", "Docker", "Netbeans"],
     color: "from-slate-500 to-zinc-500",
   },
 ];
@@ -64,7 +64,7 @@ const Skills = () => {
         <div className="absolute top-1/3 right-10 w-56 h-56 bg-violet-500/20 rounded-2xl blur-2xl animate-float-random rotate-12" />
       </div>
 
-      <div className="container-custom relative z-10">
+      <div className="container-custom relative z-10 overflow-hidden pb-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-sm font-semibold text-primary mb-4 tracking-wider uppercase">

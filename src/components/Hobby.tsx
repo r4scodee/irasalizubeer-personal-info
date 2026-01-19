@@ -1,5 +1,7 @@
 import { Camera, Moon, Stars } from "lucide-react";
 import { useMemo } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const galleryImages = [
   {
@@ -41,7 +43,7 @@ const galleryImages = [
 ];
 
 const Hobby = () => {
-  // Generate Bintang Statis
+  const navigate = useNavigate();
   const dynamicStars = useMemo(() => {
     return Array.from({ length: 50 }).map((_, i) => ({
       id: i,
@@ -58,8 +60,11 @@ const Hobby = () => {
   }, []);
 
   const shootingStars = [
+    { top: "-98%", left: "80%", delay: "12s", duration: "3s" },
+    { top: "-99%", left: "-1%", delay: "12s", duration: "3s" },
     { top: "-95%", left: "-20%", delay: "14s", duration: "4s" },
     { top: "-98%", left: "20%", delay: "24s", duration: "3s" },
+    { top: "-90%", left: "20%", delay: "14s", duration: "1.6s" },
     { top: "-45%", left: "-25%", delay: "15s", duration: "3s" },
     { top: "-75%", left: "-25%", delay: "5s", duration: "3.6s" },
     { top: "-10%", left: "-25%", delay: "10s", duration: "3s" },
@@ -81,7 +86,7 @@ const Hobby = () => {
       id="hobby"
       className="relative section-padding bg-background overflow-hidden"
     >
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div
           className="galaxy absolute -top-[10%] -left-[10%] w-[80%] h-[80%] rounded-full bg-gradient-to-br from-indigo-600/60 via-purple-600/20 to-transparent blur-[120px]"
           style={{ animationDuration: "18s" }}
@@ -120,7 +125,7 @@ const Hobby = () => {
           />
         ))}
       </div>
-      <div className="container-custom relative z-10">
+      <div className="container-custom relative z-10 overflow-hidden">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
             <Camera className="w-4 h-4 text-primary" />
@@ -160,7 +165,7 @@ const Hobby = () => {
         </div>
 
         {/* Gallery */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[160px] md:auto-rows-[200px]">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[160px] md:auto-rows-[200px] overflow-hidden">
           {galleryImages.map((image, index) => (
             <div
               key={image.id}
@@ -177,6 +182,20 @@ const Hobby = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <a
+            href="https://instagram.com/1rb4dh"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold transition-colors group"
+          >
+            Lihat lainnya di Instagram
+            <span className="group-hover:translate-x-1 transition-transform">
+              →
+            </span>
+          </a>
         </div>
       </div>
     </section>

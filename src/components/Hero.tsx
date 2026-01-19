@@ -8,9 +8,9 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/5 via-transparent to-transparent" />
-      <div className="pointer-events-none absolute top-1/4 left-1/4 w-[28rem] h-[28rem] rounded-full bg-emerald-500/15 blur-3xl animate-glow-1" />
-      <div className="pointer-events-none absolute bottom-1/4 right-1/4 w-[22rem] h-[22rem] rounded-full bg-cyan-400/15 blur-3xl animate-glow-2" />
+      <div className="absolute inset-0 bg-gradient-to-b overflow-hidden from-emerald-500/5 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute top-1/4 left-1/4 overflow-hidden w-[28rem] h-[28rem] rounded-full bg-emerald-500/15 blur-3xl animate-glow-1" />
+      <div className="pointer-events-none absolute bottom-1/4 right-1/4 overflow-hidden w-[22rem] h-[22rem] rounded-full bg-cyan-400/15 blur-3xl animate-glow-2" />
       <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
@@ -38,7 +38,7 @@ const Hero = () => {
 
           {/* Tagline */}
           <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto opacity-0 animate-fade-in animation-delay-400">
-            Frontend Developer yang suka bikin web keren dan fungsional.
+            Developer cupu yang suka bikin web keren dan modern.
           </p>
 
           <p className="text-base md:text-lg text-muted-foreground/80 mb-12 max-w-xl mx-auto opacity-0 animate-fade-in animation-delay-400">
@@ -49,32 +49,63 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 opacity-0 animate-fade-in animation-delay-600">
             <Button
-              asChild
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-base font-semibold glow transition-all duration-300 hover:scale-105"
+              className="group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-base font-semibold glow transition-all duration-300 hover:scale-105"
+              onClick={(e) => {
+                e.preventDefault();
+                window.history.pushState(null, "", "/projects");
+                const element = document.getElementById("projects");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
             >
-              <a href="#projects">Lihat Project</a>
+              {/* Animasi Kilat ke Kanan */}
+              <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-15deg)_translateX(-110%)] group-hover:[transform:skew(-15deg)_translateX(110%)] transition-transform duration-700">
+                <div className="relative h-full w-10 bg-white/30 blur-md" />
+              </div>
+
+              <span className="relative z-10">Lihat Project</span>
             </Button>
+
             <Button
-              asChild
               variant="outline"
               size="lg"
-              className="border-border hover:bg-secondary px-8 py-6 text-base font-semibold transition-all duration-300 hover:scale-105"
+              className="group relative overflow-hidden border-border hover:bg-secondary hover:text-foreground px-8 py-6 text-base font-semibold transition-all duration-300 hover:scale-105"
+              onClick={(e) => {
+                e.preventDefault();
+                window.history.pushState(null, "", "/about");
+                const element = document.getElementById("about");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
             >
-              <a href="#about">Personal Info</a>
+              <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-15deg)_translateX(-110%)] group-hover:[transform:skew(-15deg)_translateX(110%)] transition-transform duration-700">
+                <div className="relative h-full w-10 bg-primary/10 blur-md" />
+              </div>
+
+              <span className="relative z-10">Personal Info</span>
             </Button>
           </div>
         </div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom--0 inset-x-0 flex justify-center opacity-0 animate-fade-in animation-delay-600">
-          <a
-            href="#about"
-            className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              window.history.pushState(null, "", "/about");
+              const element = document.getElementById("about");
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
           >
             <span className="text-xs font-medium">Scroll Kebawah</span>
             <ArrowDown size={16} className="animate-bounce" />
-          </a>
+          </button>
         </div>
       </div>
     </section>
