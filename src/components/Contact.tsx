@@ -58,7 +58,7 @@ const Contact = () => {
       const result = await response.json();
 
       if (result.success) {
-        setIsSent(true); 
+        setIsSent(true);
         toast({
           title: "Meluncur!",
           description:
@@ -98,8 +98,15 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding">
-      <div className="container-custom">
+    <section id="contact" className="relative section-padding overflow-hidden">
+
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <div className="absolute top-30 left-10 w-64 h-64 bg-emerald-500/20 rounded-full blur-[80px] animate-float-random opacity-60" />
+        <div className="absolute bottom-10 right-20 w-80 h-80 bg-primary/50 rounded-full blur-[100px] animate-float-random-slow opacity-50" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-emerald-500/20 rounded-full blur-[120px] pointer-events-none" />
+      </div>
+
+      <div className="container-custom relative z-10">
         <div className="text-center mb-16">
           <span className="inline-block text-sm font-semibold text-primary mb-4 tracking-wider uppercase">
             Kontak
@@ -149,7 +156,7 @@ const Contact = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-secondary hover:bg-primary/10 text-foreground hover:text-primary transition-all duration-300"
+                    className="p-3 rounded-xl bg-secondary/80 hover:bg-primary/10 text-foreground hover:text-primary transition-all duration-300"
                   >
                     <social.icon size={20} />
                   </a>
@@ -162,7 +169,7 @@ const Contact = () => {
           <div className="lg:col-span-3">
             <form
               onSubmit={handleSubmit}
-              className="p-6 lg:p-8 rounded-2xl bg-card border border-border space-y-6"
+              className="p-6 lg:p-8 rounded-2xl bg-card/30 border border-border space-y-6"
             >
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
@@ -178,7 +185,7 @@ const Contact = () => {
                     value={formData.user_name}
                     onChange={handleChange}
                     required
-                    className="bg-background border-border focus:border-primary"
+                    className="bg-background/30 border-border focus:border-primary"
                   />
                 </div>
                 <div className="space-y-2">
@@ -189,13 +196,13 @@ const Contact = () => {
                     Email
                   </label>
                   <Input
-                    name="user_email" 
+                    name="user_email"
                     type="email"
                     placeholder="emailkamu@email.com"
                     value={formData.user_email}
                     onChange={handleChange}
                     required
-                    className="bg-background border-border focus:border-primary"
+                    className="bg-background/30 border-border focus:border-primary"
                   />
                 </div>
               </div>
@@ -213,7 +220,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="bg-background border-border focus:border-primary resize-none"
+                  className="bg-background/30 border-border focus:border-primary resize-none"
                 />
               </div>
 

@@ -75,9 +75,10 @@ const Projects = () => {
     >
       {/* FLOATING SHOWCASE GLOWS */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-32 left-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl animate-float-random" />
-        <div className="absolute top-1/3 right-0 w-80 h-80 bg-teal-500/20 rounded-full blur-3xl animate-float-random-slow" />
-        <div className="absolute bottom-0 left-10 w-64 h-64 bg-primary/20 rounded-2xl blur-2xl animate-float-random rotate-12" />
+        <div className="absolute -top-32 left-1/4 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl animate-float-random" />
+        <div className="absolute top-1/3 right-0 w-80 h-80 bg-teal-500/15 rounded-full blur-3xl animate-float-random-slow" />
+        <div className="absolute bottom-0 left-10 w-64 h-64 bg-primary/15 rounded-2xl blur-2xl animate-float-random rotate-12" />
+        <div className="absolute top-1/2 left-1/2 -translate-y-70 w-[400px] h-[400px] bg-emerald-500/30 rounded-full blur-[120px] pointer-events-none" />
       </div>
       <div className="container-custom relative z-10 overflow-hidden">
         {/* Section Header */}
@@ -103,7 +104,7 @@ const Projects = () => {
             return (
               <article
                 key={project.id}
-                className="group relative p-6 lg:p-8 rounded-2xl bg-card border border-border card-hover overflow-hidden"
+                className="group relative p-6 lg:p-8 rounded-2xl bg-card/30 border border-border card-hover overflow-hidden"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">

@@ -4,13 +4,14 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-8 border-t border-border bg-card/50">
+    <footer className="py-8 border-t border-border bg-card/30">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-1 text-sm text-muted-foreground">
             <span>© {currentYear}</span>
             <span className="gradient-text font-semibold">Iras Alizubeer</span>
-            <span>. All rights reserved.</span>
+            <span className="hidden sm:inline">•</span>
+            <span>All rights reserved.</span>
           </div>
         </div>
       </div>

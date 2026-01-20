@@ -85,7 +85,7 @@ const Skills = () => {
           {skills.map((skill, index) => (
             <div
               key={skill.title}
-              className="group relative p-6 rounded-xl bg-card border border-border card-hover overflow-hidden"
+              className="group relative p-6 rounded-xl bg-card/20 border border-border card-hover overflow-hidden"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Gradient Background on Hover */}
@@ -120,7 +120,7 @@ const Skills = () => {
                 </div>
               </div>
             </div>
-          ))}
+          ))} 
         </div>
       </div>
     </section>
