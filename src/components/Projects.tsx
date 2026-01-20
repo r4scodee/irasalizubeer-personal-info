@@ -87,7 +87,7 @@ const Projects = () => {
             Hasil Ngoding
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Things I’ve Built
+            Things I’ve <span className="gradient-text">Built</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full" />
           <p className="mt-6 text-muted-foreground max-w-2xl mx-auto">

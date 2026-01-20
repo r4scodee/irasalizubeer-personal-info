@@ -99,7 +99,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="relative section-padding overflow-hidden">
-
       <div className="pointer-events-none absolute inset-0 z-0">
         <div className="absolute top-30 left-10 w-64 h-64 bg-emerald-500/20 rounded-full blur-[80px] animate-float-random opacity-60" />
         <div className="absolute bottom-10 right-20 w-80 h-80 bg-primary/50 rounded-full blur-[100px] animate-float-random-slow opacity-50" />
@@ -115,6 +114,9 @@ const Contact = () => {
             Let's Get In Touch
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full" />
+          <p className="mt-6 text-muted-foreground max-w-2xl mx-auto">
+            Jangan cuma liat liat doang, kirim pesan sesuatu ke gw dong!
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-12">
