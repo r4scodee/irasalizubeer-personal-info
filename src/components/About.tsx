@@ -29,10 +29,7 @@ const highlights = [
 
 const About = () => {
   return (
-    <section
-      id="about"
-      className="relative section-padding bg-card/30"
-    >
+    <section id="about" className="relative section-padding bg-card/30">
       {/* ABSURD SHAPES */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute top-10 left-20 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl animate-float-random" />
@@ -56,7 +53,7 @@ const About = () => {
           {/* Text Content */}
           <div className="space-y-6">
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Kenalin! Gw 
+              Kenalin! Gw{" "}
               <span className="text-foreground font-semibold">
                 Iras Alizubeer
               </span>
