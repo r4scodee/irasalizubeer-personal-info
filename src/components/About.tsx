@@ -56,7 +56,7 @@ const About = () => {
           {/* Text Content */}
           <div className="space-y-6">
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Kenalin! Gw
+              Kenalin! Gw 
               <span className="text-foreground font-semibold">
                 Iras Alizubeer
               </span>
