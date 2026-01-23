@@ -115,11 +115,11 @@ html {
   }
 
   .glow {
-    box-shadow: 0 0 40px -10px hsl(160 84% 39% / 0.5);
+    box-shadow: 0 0 40px -10px hsl(199 89% 48% / 0.5);
   }
 
   .glow-sm {
-    box-shadow: 0 0 20px -5px hsl(160 84% 39% / 0.3);
+    box-shadow: 0 0 20px -5px hsl(199 89% 48% / 0.3);
   }
 
   .card-hover {
@@ -246,7 +246,7 @@ html {
     rgba(255, 255, 255, 1) 50%,
     #39dbff 100%
   );
-  filter: drop-shadow(0 1px 12px 5PX #39dbff);
+  filter: drop-shadow(0 1px 12px 5px #39dbff);
   animation: shooting-star ease-in infinite;
   opacity: 0;
   pointer-events: none;

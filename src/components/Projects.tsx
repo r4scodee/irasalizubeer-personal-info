@@ -170,7 +170,7 @@ const Projects = () => {
                     <Button
                       size="sm"
                       asChild
-                      className="group relative overflow-hidden gap-2 bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.3)]"
+                      className="group relative overflow-hidden gap-2 bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300 glow"
                     >
                       <a
                         href={project.liveUrl}
