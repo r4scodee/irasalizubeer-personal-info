@@ -141,7 +141,7 @@ const Hobby = () => {
           <p className="max-w-2xl mx-auto text-muted-foreground text-lg leading-relaxed">
             Selain perkodingan, gw juga suka Fotografi apalagi yang berhubungan
             sama langit malam. Rasanya kayak nemuin keindahan baru di setiap
-            jepretan. yang bilang AI fix haters.
+            jepretan.
           </p>
         </div>
 
