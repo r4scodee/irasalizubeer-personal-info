@@ -171,7 +171,7 @@ const Contact = () => {
           <div className="lg:col-span-3">
             <form
               onSubmit={handleSubmit}
-              className="p-6 lg:p-8 rounded-2xl bg-card/30 border border-none space-y-6"
+              className="p-6 lg:p-8 rounded-2xl bg-card/30 border border-border space-y-6"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5 opacity-0 group-hover/form:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
