@@ -18,7 +18,7 @@ const projects: Project[] = [
   {
     id: 1,
     title: "Coffee S1ke Web",
-    description: "Website company profile untuk Coffee S1ke, kedai kopi.",
+    description: "Website umkm untuk profile Coffee S1ke, kedai kopi.",
     technologies: ["HTML", "CSS", "Tailwind CSS", "Javascript"],
     status: "completed",
     githubUrl: "https://github.com/r4scodee/Game-space",
@@ -28,7 +28,7 @@ const projects: Project[] = [
     id: 2,
     title: "Mini Games",
     description:
-      "Mini Games untuk hiburan dan mengasah logika. simple tapi seru!",
+      "Mini Games buat hiburan dan mengasah logika. simple tapi seru!",
     technologies: ["HTML", "CSS", "Javascript", "Bootstrap"],
     status: "completed",
     githubUrl: "https://github.com/r4scodee/Game-space",
@@ -155,11 +155,6 @@ const Projects = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {/* Efek Kilat Soft buat Outline */}
-                        <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-15deg)_translateX(-115%)] group-hover:[transform:skew(-15deg)_translateX(115%)] transition-transform duration-700">
-                          <div className="relative h-full w-6 bg-primary/10 blur-sm" />
-                        </div>
-
                         <Github size={16} className="relative z-10" />
                         <span className="relative z-10">Code</span>
                       </a>
