@@ -32,9 +32,9 @@ const About = () => {
     <section id="about" className="relative section-padding bg-card/30">
       {/* ABSURD SHAPES */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-10 left-20 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl animate-float-random" />
-        <div className="absolute bottom-20 right-1 w-64 h-64 bg-teal-500/20 rounded-full blur-3xl animate-float-random-slow" />
-        <div className="absolute top-1/2 left-1/3 w-48 h-48 bg-cyan-500/20 rounded-2xl blur-2xl animate-float-random-fast rotate-12" />
+        <div className="absolute top-10 left-20 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-float-random" />
+        <div className="absolute bottom-20 right-1 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl animate-float-random-slow" />
+        <div className="absolute top-1/2 left-1/3 w-48 h-48 bg-indigo-500/20 rounded-2xl blur-2xl animate-float-random-fast rotate-12" />
       </div>
 
       <div className="container-custom relative z-10 overflow-hidden pb-10">
@@ -46,7 +46,7 @@ const About = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Get to Know <span className="gradient-text">Me</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full" />
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">

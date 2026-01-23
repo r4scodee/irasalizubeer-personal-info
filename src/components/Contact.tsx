@@ -100,9 +100,9 @@ const Contact = () => {
   return (
     <section id="contact" className="relative section-padding overflow-hidden">
       <div className="pointer-events-none absolute inset-0 z-0">
-        <div className="absolute top-30 left-10 w-64 h-64 bg-emerald-500/20 rounded-full blur-[80px] animate-float-random opacity-60" />
+        <div className="absolute top-30 left-10 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px] animate-float-random opacity-60" />
         <div className="absolute bottom-10 right-20 w-80 h-80 bg-primary/50 rounded-full blur-[100px] animate-float-random-slow opacity-50" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-emerald-500/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-blue-500/20 rounded-full blur-[120px] pointer-events-none" />
       </div>
 
       <div className="container-custom relative z-10">
@@ -113,7 +113,7 @@ const Contact = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Let's Get In Touch
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full" />
           <p className="mt-6 text-muted-foreground max-w-2xl mx-auto">
             Jangan cuma liat liat doang, kirim pesan sesuatu ke gw dong!
           </p>
@@ -171,13 +171,15 @@ const Contact = () => {
           <div className="lg:col-span-3">
             <form
               onSubmit={handleSubmit}
-              className="p-6 lg:p-8 rounded-2xl bg-card/30 border border-border space-y-6"
+              className="p-6 lg:p-8 rounded-2xl bg-card/30 border border-none space-y-6"
             >
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5 opacity-0 group-hover/form:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+              <div className="grid sm:grid-cols-2 gap-4 relative z-10">
+                <div className="space-y-2 group/input">
                   <label
                     htmlFor="user_name"
-                    className="text-sm font-medium text-foreground"
+                    className="text-sm font-medium text-foreground/80 group-focus-within/input:text-primary transition-colors"
                   >
                     Nama
                   </label>
@@ -187,13 +189,13 @@ const Contact = () => {
                     value={formData.user_name}
                     onChange={handleChange}
                     required
-                    className="bg-background/30 border-border focus:border-primary"
+                    className="bg-background/40 border-white/10 focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all duration-300"
                   />
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-2 group/input">
                   <label
                     htmlFor="user_email"
-                    className="text-sm font-medium text-foreground"
+                    className="text-sm font-medium text-foreground/80 group-focus-within/input:text-primary transition-colors"
                   >
                     Email
                   </label>
@@ -204,14 +206,15 @@ const Contact = () => {
                     value={formData.user_email}
                     onChange={handleChange}
                     required
-                    className="bg-background/30 border-border focus:border-primary"
+                    className="bg-background/40 border-white/10 focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all duration-300"
                   />
                 </div>
               </div>
-              <div className="space-y-2">
+
+              <div className="space-y-2 relative z-10 group/input">
                 <label
                   htmlFor="message"
-                  className="text-sm font-medium text-foreground"
+                  className="text-sm font-medium text-foreground/80 group-focus-within/input:text-primary transition-colors"
                 >
                   Pesan
                 </label>
@@ -222,7 +225,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="bg-background/30 border-border focus:border-primary resize-none"
+                  className="bg-background/40 border-white/10 focus:border-primary/50 focus:ring-1 focus:ring-primary/20 resize-none transition-all duration-300"
                 />
               </div>
 
@@ -230,12 +233,16 @@ const Contact = () => {
                 type="submit"
                 size="lg"
                 disabled={isSubmitting || isSent}
-                className={`w-full font-semibold h-12 rounded-xl group overflow-hidden relative shadow-lg transition-all duration-300 ${
+                className={`w-full font-semibold h-12 text-white rounded-xl group overflow-hidden relative shadow-lg transition-all duration-300 ${
                   isSent
-                    ? "bg-emerald-500 hover:bg-emerald-600"
+                    ? "bg-blue-500 hover:bg-blue-600"
                     : "bg-primary hover:bg-primary/90"
                 }`}
               >
+                <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-15deg)_translateX(-110%)] group-hover:[transform:skew(-15deg)_translateX(110%)] transition-transform duration-700 pointer-events-none">
+                  <div className="relative h-full w-10 bg-white/20 blur-md" />
+                </div>
+
                 <AnimatePresence mode="wait">
                   {isSent ? (
                     <motion.div

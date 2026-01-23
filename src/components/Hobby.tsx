@@ -92,7 +92,7 @@ const Hobby = () => {
           style={{ animationDuration: "18s" }}
         />
         <div
-          className="galaxy absolute top-1/4 right-[-10%] w-[70%] h-[70%] rounded-full bg-gradient-to-br from-cyan-500/40 via-blue-600/10 to-transparent blur-[100px]"
+          className="galaxy absolute top-1/4 right-[-10%] w-[70%] h-[70%] rounded-full bg-gradient-to-br from-indigo-500/40 via-blue-600/10 to-transparent blur-[100px]"
           style={{ animationDuration: "12s", animationDelay: "-5s" }}
         />
       </div>

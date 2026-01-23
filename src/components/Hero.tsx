@@ -8,9 +8,9 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b overflow-hidden from-emerald-500/5 via-transparent to-transparent" />
-      <div className="pointer-events-none absolute top-1/4 left-1/4 overflow-hidden w-[28rem] h-[28rem] rounded-full bg-emerald-500/15 blur-3xl animate-glow-1" />
-      <div className="pointer-events-none absolute bottom-1/4 right-1/4 overflow-hidden w-[22rem] h-[22rem] rounded-full bg-cyan-400/15 blur-3xl animate-glow-2" />
+      <div className="absolute inset-0 bg-gradient-to-b overflow-hidden from-blue-500/5 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute top-1/4 left-1/4 overflow-hidden w-[28rem] h-[28rem] rounded-full bg-blue-500/15 blur-3xl animate-glow-1" />
+      <div className="pointer-events-none absolute bottom-1/4 right-1/4 overflow-hidden w-[22rem] h-[22rem] rounded-full bg-indigo-400/15 blur-3xl animate-glow-2" />
       <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
@@ -21,12 +21,12 @@ const Hero = () => {
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Status Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-8 opacity-0 animate-fade-in">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8 opacity-0 animate-fade-in">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
             </span>
-            <span className="text-sm text-emerald-400 font-medium">
+            <span className="text-sm text-blue-400 font-medium">
               Welcome to Personal Info
             </span>
           </div>
@@ -65,7 +65,7 @@ const Hero = () => {
                 <div className="relative h-full w-10 bg-white/30 blur-md" />
               </div>
 
-              <span className="relative z-10">Lihat Project</span>
+              <span className="relative text-white z-10">Lihat Project</span>
             </Button>
 
             <Button

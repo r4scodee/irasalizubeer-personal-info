@@ -58,7 +58,7 @@ const statusConfig = {
   completed: {
     label: "Completed",
     icon: CheckCircle,
-    className: "bg-emerald-500/10 text-emerald-500 border-emerald-500/20",
+    className: "bg-blue-500/10 text-blue-500 border-blue-500/20",
   },
   ongoing: {
     label: "On Going",
@@ -75,10 +75,10 @@ const Projects = () => {
     >
       {/* FLOATING SHOWCASE GLOWS */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-32 left-1/4 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl animate-float-random" />
-        <div className="absolute top-1/3 right-0 w-80 h-80 bg-teal-500/15 rounded-full blur-3xl animate-float-random-slow" />
-        <div className="absolute bottom-0 left-10 w-64 h-64 bg-primary/15 rounded-2xl blur-2xl animate-float-random rotate-12" />
-        <div className="absolute top-1/2 left-1/2 -translate-y-70 w-[400px] h-[400px] bg-emerald-500/30 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute -top-32 left-1/4 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl animate-float-random" />
+        <div className="absolute top-1/3 right-0 w-80 h-80 bg-indigo-500/15 rounded-full blur-3xl animate-float-random-slow" />
+        <div className="absolute bottom-0 left-10 w-64 h-64 bg-indigo-800/15 rounded-2xl blur-2xl animate-float-random rotate-12" />
+        <div className="absolute top-1/2 left-1/2 -translate-y-70 w-[400px] h-[400px] bg-blue-500/30 rounded-full blur-[120px] pointer-events-none" />
       </div>
       <div className="container-custom relative z-10 overflow-hidden">
         {/* Section Header */}
@@ -89,7 +89,7 @@ const Projects = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Things I’ve <span className="gradient-text">Built</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full" />
           <p className="mt-6 text-muted-foreground max-w-2xl mx-auto">
             Beberapa project yang pernah gw kerjain, baik secara individu maupun
             tim.
@@ -108,7 +108,7 @@ const Projects = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
-                  <div className="absolute -left-full top-0 h-full w-1/2 bg-gradient-to-r from-transparent via-primary/10 to-transparent group-hover:left-full transition-all duration-700" />
+                  <div className="absolute -left-full top-0 h-full w-1/2 bg-gradient-to-r from-transparent via-primary/5 to-transparent group-hover:left-full transition-all duration-700" />
                 </div>
 
                 <div className="flex items-center justify-between mb-4">
@@ -177,13 +177,8 @@ const Projects = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {/* Efek Kilat Terang buat Solid Button */}
-                        <div className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-15deg)_translateX(-115%)] group-hover:[transform:skew(-15deg)_translateX(115%)] transition-transform duration-700">
-                          <div className="relative h-full w-6 bg-white/30 blur-sm" />
-                        </div>
-
-                        <ExternalLink size={16} className="relative z-10" />
-                        <span className="relative z-10">Live Demo</span>
+                        <ExternalLink size={16} className="relative text-white z-10" />
+                        <span className="relative text-white z-10">Live Demo</span>
                       </a>
                     </Button>
                   )}

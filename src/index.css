@@ -18,49 +18,51 @@ body {
 
 @layer base {
   :root {
+    /* Mode Terang (Optional, tetep gue kasih aksen biru) */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 160 84% 39%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 217 91% 60%; /* Blue Orbit */
+    --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 160 84% 39%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 160 84% 39%;
+    --ring: 217 91% 60%;
     --radius: 0.75rem;
     --meteor-angle: 30deg;
   }
 
   .dark {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
-    --card: 224 71% 6%;
-    --card-foreground: 213 31% 91%;
-    --popover: 224 71% 6%;
-    --popover-foreground: 213 31% 91%;
-    --primary: 160 84% 39%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 222 47% 11%;
-    --secondary-foreground: 213 31% 91%;
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 56.9%;
-    --accent: 160 84% 39%;
-    --accent-foreground: 0 0% 100%;
+    /* DEEP GALAXY BLUE BASE */
+    --background: 222 84% 4.9%; /* Deep Navy */
+    --foreground: 210 40% 98%;
+    --card: 222 84% 6%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 84% 5%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 199 89% 48%; /* Deep Sky Blue / Cyan Neon */
+    --primary-foreground: 222.2 47.4% 1.2%;
+    --secondary: 217.2 32.6% 12%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 12%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 12%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
-    --ring: 160 84% 39%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 199 89% 48%;
   }
 }
 
@@ -89,8 +91,9 @@ html {
 }
 
 @layer components {
+  /* GRADIENT GALAXY BLUE */
   .gradient-text {
-    @apply bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent;
   }
 
   .gradient-border {
@@ -100,7 +103,7 @@ html {
   .gradient-border::before {
     content: "";
     @apply absolute inset-0 rounded-xl p-[1px];
-    background: linear-gradient(135deg, hsl(160 84% 39%), hsl(180 84% 39%));
+    background: linear-gradient(135deg, hsl(199 89% 48%), hsl(220 89% 48%));
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
@@ -120,7 +123,7 @@ html {
   }
 
   .card-hover {
-    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/10;
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10;
   }
 
   .section-padding {
@@ -241,9 +244,9 @@ html {
     90deg,
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 1) 50%,
-    #16e9f1 100%
+    #39dbff 100%
   );
-  filter: drop-shadow(0 1px 12px #16e9f1);
+  filter: drop-shadow(0 1px 12px 5PX #39dbff);
   animation: shooting-star ease-in infinite;
   opacity: 0;
   pointer-events: none;

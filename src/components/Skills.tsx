@@ -14,14 +14,14 @@ const skills = [
     description:
       "Membuat website yang responsif dan dinamis dengan teknologi web modern",
     technologies: ["HTML5", "CSS", "JavaScript", "Java"],
-    color: "from-blue-500 to-cyan-500",
+    color: "from-blue-500 to-indigo-500",
   },
   {
     icon: Palette,
     title: "Frontend Development",
     description: "Membangun UI/UX pengguna yang menarik dan interaktif",
     technologies: ["React", "Tailwind CSS", "Next.js", "Vite"],
-    color: "from-emerald-500 to-teal-500",
+    color: "from-blue-500 to-indigo-500",
   },
   {
     icon: Server,
@@ -60,7 +60,7 @@ const Skills = () => {
       {/* FLOATING TECH GLOWS */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-24 left-1/4 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-float-random" />
-        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-emerald-500/20 rounded-full blur-3xl animate-float-random-slow" />
+        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-float-random-slow" />
         <div className="absolute top-1/3 right-10 w-56 h-56 bg-violet-500/20 rounded-2xl blur-2xl animate-float-random rotate-12" />
       </div>
 
@@ -73,7 +73,7 @@ const Skills = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             Technologies I <span className="gradient-text">Use</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full" />
+          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full" />
           <p className="mt-6 text-muted-foreground max-w-2xl mx-auto">
             Berikut adalah beberapa teknologi dan alat yang sering gw pake buat
             pengembangan software.
