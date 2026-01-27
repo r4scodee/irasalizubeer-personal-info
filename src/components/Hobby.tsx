@@ -45,7 +45,7 @@ const galleryImages = [
 const Hobby = () => {
   const navigate = useNavigate();
   const dynamicStars = useMemo(() => {
-    return Array.from({ length: 50 }).map((_, i) => ({
+    return Array.from({ length: 250 }).map((_, i) => ({
       id: i,
       top: `${Math.random() * 100}%`,
       left: `${Math.random() * 100}%`,
