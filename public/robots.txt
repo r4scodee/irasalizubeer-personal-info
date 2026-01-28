@@ -12,3 +12,6 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Tambahkan ini agar Google tahu jalan ke peta web lo
+Sitemap: https://irasgt.my.id/sitemap.xml
