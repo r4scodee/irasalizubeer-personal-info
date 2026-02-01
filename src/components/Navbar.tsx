@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { name: "Home", id: "home" },
@@ -16,7 +16,7 @@ const navLinks = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [hoveredLink, setHoveredLink] = useState<string | null>(null); 
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -52,31 +52,34 @@ const Navbar = () => {
             Iras Alizubeer
           </button>
 
-          {/* Desktop Nav*/}
+          {/* Desktop Nav */}
           <div
             className="hidden md:flex items-center gap-1 relative"
             onMouseLeave={() => setHoveredLink(null)}
           >
-            {navLinks.map((link) => (
-              <button
-                key={link.name}
-                onMouseEnter={() => setHoveredLink(link.name)}
-                onClick={() => handleNavClick(link.id)}
-                className="relative px-4 py-2 text-muted-foreground hover:text-foreground text-sm font-medium transition-colors duration-300 rounded-lg cursor-pointer z-10"
-              >
-                {hoveredLink === link.name && (
-                  <motion.div
-                    layoutId="nav-pill"
-                    className="absolute inset-0 bg-primary/10 rounded-lg -z-10"
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ type: "spring", bounce: 0.25, duration: 0.35 }}
-                  />
-                )}
-
-                {link.name}
-              </button>
-            ))}
+            <AnimatePresence>
+              {navLinks.map((link) => (
+                <button
+                  key={link.name}
+                  onMouseEnter={() => setHoveredLink(link.name)}
+                  onClick={() => handleNavClick(link.id)}
+                  className="relative px-4 py-2 text-muted-foreground hover:text-foreground text-sm font-medium transition-colors duration-300 rounded-lg cursor-pointer z-10"
+                >
+                  {hoveredLink === link.name && (
+                    <motion.div
+                      layoutId="nav-pill"
+                      className="absolute inset-0 bg-primary/15 rounded-lg -z-10"
+                      transition={{ 
+                        type: "spring", 
+                        bounce: 0.25, 
+                        duration: 0.35 
+                      }}
+                    />
+                  )}
+                  {link.name}
+                </button>
+              ))}
+            </AnimatePresence>
             <div className="ml-4 pl-4 border-l border-border">
               <ThemeToggle />
             </div>
