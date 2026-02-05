@@ -39,7 +39,7 @@ const Navbar = () => {
       <div
         className={`mx-auto transition-all duration-500 rounded-xl md:rounded-2xl border pointer-events-auto ${
           isScrolled
-            ? "bg-background/40 backdrop-blur-md border-border shadow-lg py-2 px-4 md:px-6 w-[95%] md:w-full max-w-5xl"
+            ? "bg-background/30 backdrop-blur-sm border-border shadow-lg py-2 px-4 md:px-6 w-[95%] md:w-full max-w-5xl"
             : "bg-transparent border-transparent py-3 px-4 md:px-6 w-full max-w-5xl"
         }`}
       >
