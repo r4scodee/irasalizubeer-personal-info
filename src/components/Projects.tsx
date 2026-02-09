@@ -46,12 +46,11 @@ const projects: Project[] = [
   {
     id: 4,
     title: "Task Planner App",
-    description:
-      "Aplikasi untuk membuat dan mengelola tugas harian dengan fitur lengkap.",
+    description: "Aplikasi untuk membuat dan mengelola tugas harian dengan fitur lengkap.",
     technologies: ["Laravel", "Vite", "MySQL", "Tailwind CSS"],
-    status: "ongoing",
+    status: "completed",
     githubUrl: "https://github.com/r4scodee/task-planner-app",
-    liveUrl: "https://task-planner.up.railway.app/"
+    liveUrl: "https://task-planner.up.railway.app/",
   },
 ];
 
@@ -173,8 +172,13 @@ const Projects = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <ExternalLink size={16} className="relative text-white z-10" />
-                        <span className="relative text-white z-10">Live Demo</span>
+                        <ExternalLink
+                          size={16}
+                          className="relative text-white z-10"
+                        />
+                        <span className="relative text-white z-10">
+                          Live Demo
+                        </span>
                       </a>
                     </Button>
                   )}
