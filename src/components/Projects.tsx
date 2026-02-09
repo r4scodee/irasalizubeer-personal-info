@@ -45,12 +45,13 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    title: "MyKareem Quran Reader",
+    title: "Task Planner App",
     description:
-      "Aplikasi baca Quran digital dengan fitur lengkap untuk pengalaman membaca yang nyaman.",
-    technologies: ["Flutter", "Dart", "Firebase API"],
+      "Aplikasi untuk membuat dan mengelola tugas harian dengan fitur lengkap.",
+    technologies: ["Laravel", "Vite", "MySQL", "Tailwind CSS"],
     status: "ongoing",
-    githubUrl: "https://github.com/r4scodee/app_mykareem",
+    githubUrl: "https://github.com/r4scodee/task-planner-app",
+    liveUrl: "https://task-planner.up.railway.app/"
   },
 ];
 
