@@ -50,7 +50,7 @@ const projects: Project[] = [
     technologies: ["Laravel", "Vite", "MySQL", "Tailwind CSS"],
     status: "completed",
     githubUrl: "https://github.com/r4scodee/task-planner-app",
-    liveUrl: "https://task-planner.up.railway.app/",
+    liveUrl: "https://www.taskplanner.my.id",
   },
 ];
 
